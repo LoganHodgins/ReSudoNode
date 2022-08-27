@@ -1,13 +1,11 @@
-import Row from "./Row";
+import Box from "./Box";
+
+import classes from './Grid.module.css';
 
 const Grid = () => {
-  return (
-    <table>
-      <tbody>
-        <Row /><Row /><Row /><Row /><Row /><Row /><Row /><Row /><Row />
-      </tbody>
-    </table>
-  );
+  return (<table className={classes.grid}><tbody><tr><Box /><Box /><Box /></tr>
+  <tr><Box /><Box /><Box /></tr>
+  <tr><Box /><Box /><Box /></tr></tbody></table>);
 };
 
 export default Grid;

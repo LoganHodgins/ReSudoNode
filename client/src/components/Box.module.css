@@ -1,0 +1,7 @@
+.box {
+  border-collapse: collapse;
+}
+
+.box:hover {
+  background-color: lightgray;
+}
