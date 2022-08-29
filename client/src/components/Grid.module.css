@@ -2,3 +2,9 @@
   border: 5px solid black;
   border-collapse: collapse;
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
