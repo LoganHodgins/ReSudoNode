@@ -1,0 +1,8 @@
+.grid {
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: auto auto auto;
+  background-color: lightgray;
+  border: 2px solid black;
+  width: 474px;
+}
