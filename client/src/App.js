@@ -7,8 +7,7 @@ function App() {
     <h2>Puzzle #165</h2>
     <Grid />
     <Numpad />
-  </Fragment>
-  );
+  </Fragment>);
 }
 
 export default App;
