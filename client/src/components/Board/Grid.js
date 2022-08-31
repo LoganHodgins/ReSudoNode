@@ -26,7 +26,7 @@ const getBox = (sudoku, box) => {
   return boxes[box];
 };
 
-const Grid = () => {
+const Grid = (props) => {
   const sudoku = [[6, 1, -1, 4, -1, 8, 7, -1, -1],
                  [-1, -1, 5, -1, -1, 2, 6, -1, -1],
                  [4, -1, -1, 3, 7, -1, -1, -1, -1],

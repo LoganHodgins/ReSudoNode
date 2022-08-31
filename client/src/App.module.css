@@ -1,0 +1,12 @@
+.game-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 50%;
+  column-gap: 50px;
+  margin: 0 auto;
+}
+
+.header-text {
+  text-align: center;
+  grid-column: 1 / 2;
+}
