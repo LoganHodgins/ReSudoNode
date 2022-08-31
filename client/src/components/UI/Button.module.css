@@ -1,0 +1,8 @@
+.numpad-item {
+  border: none;
+  background-color: #FFAA3B;
+}
+
+.numpad-item:hover {
+  background-color: #FA8F04;
+}
