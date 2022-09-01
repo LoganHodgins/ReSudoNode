@@ -3,5 +3,7 @@
   grid-template-columns: repeat(3, 1fr);
   row-gap: 4px;
   column-gap: 4px;
-  width: 250px;
+  width: 350px;
+  height: 250px;
+  margin-top: 130px;
 }

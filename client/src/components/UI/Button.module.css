@@ -1,8 +1,14 @@
 .numpad-item {
   border: none;
-  background-color: #FFAA3B;
+  background-color: #FF7326;
+  border-radius: 15px;
+  font-size: 24px;
 }
 
 .numpad-item:hover {
-  background-color: #FA8F04;
+  background-color: #FA6122;
+}
+
+.numpad-item:active {
+  background-color: #E84F0B;
 }
