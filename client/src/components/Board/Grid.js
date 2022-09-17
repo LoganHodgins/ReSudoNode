@@ -27,19 +27,9 @@ const getBox = (sudoku, box) => {
 };
 
 const Grid = (props) => {
-  const sudoku = [[6, 1, -1, 4, -1, 8, 7, -1, -1],
-                 [-1, -1, 5, -1, -1, 2, 6, -1, -1],
-                 [4, -1, -1, 3, 7, -1, -1, -1, -1],
-                 [-1, -1, -1, -1, -1, 1, 3, 8, 2],
-                 [4, 2, -1, -1, 6, -1, -1, 5, 7],
-                 [9, 8, 3, 7, -1, -1, -1, -1, -1],
-                 [-1, -1, -1, -1, 7, 6, -1, -1, 4],
-                 [-1, -1, 3, 5, -1, -1, 8, -1, -1],
-                 [-1, -1, 8, 2, -1, 1, -1, 9, 7]];
-
   const grid = [];
   for (let i = 0; i < 9; i++) {
-    grid.push(<Box values={getBox(sudoku, i)}/>);
+    grid.push(<Box values={getBox(props.sudoku, i)}/>);
   }
 
   return (<div className={classes.grid}>{grid}</div>);
