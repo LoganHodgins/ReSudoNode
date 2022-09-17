@@ -1,6 +1,6 @@
 const express = require('express');
 const sudokuRoutes = require('./routes/sudoku');
-const port = 5000;
+const port = 8080;
 
 const app = express();
 
