@@ -1,8 +1,10 @@
 .cell {
   border: 1px solid black;
   font-size: 24px;
-  font-weight: bold;
   text-align: center;
+  vertical-align: middle;
+  line-height: 50px;
+  font-family: times;
   height: 50px;
   width: 50px;
 }

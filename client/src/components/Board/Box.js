@@ -4,10 +4,10 @@ import classes from './Box.module.css';
 
 const Box = (props) => {
   const cells = [];
-  
+
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
-      cells.push(<Cell value={props.values[i][j]}/>);
+      cells.push(<Cell value={props.values[i][j]} location={props.location} i={i} j={j}/>);
     }
   }
 

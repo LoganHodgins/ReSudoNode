@@ -29,7 +29,7 @@ const getBox = (sudoku, box) => {
 const Grid = (props) => {
   const grid = [];
   for (let i = 0; i < 9; i++) {
-    grid.push(<Box values={getBox(props.sudoku, i)}/>);
+    grid.push(<Box values={getBox(props.sudoku, i)} key={i} location={i}/>);
   }
 
   return (<div className={classes.grid}>{grid}</div>);

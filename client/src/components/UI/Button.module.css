@@ -1,6 +1,7 @@
 .numpad-item {
   border: none;
   background-color: #FF7326;
+  font-family: times;
   border-radius: 15px;
   font-size: 24px;
 }
