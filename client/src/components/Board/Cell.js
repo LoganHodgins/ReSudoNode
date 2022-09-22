@@ -1,9 +1,12 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
+import CurrentContext from '../../store/current-context';
 import classes from './Cell.module.css'
 
 const Cell = (props) => {
+  const ctx = useContext(CurrentContext);
+
   const clickHandler = () => {
-    console.log(`loc=${props.location}, i=${props.i} j=${props.j}`);
+    ctx.setCurrentCell(props.location, props.i, props.j);
   };
 
   const value = props.value > 0 ? props.value.toString() : "";

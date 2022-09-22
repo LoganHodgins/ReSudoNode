@@ -2,6 +2,7 @@ import { Fragment, useEffect, useState } from "react";
 import Grid from "./components/Board/Grid";
 import Numpad from './components/UI/Numpad';
 
+
 import classes from './App.module.css';
 
 function App() {
@@ -9,18 +10,6 @@ function App() {
   const [boardID, setboardID] = useState();
   const [difficulty, setDifficulty] = useState();
   const [isLoading, setIsLoading] = useState(false);
-
-  // DUMMY VALUES
-  const cloc = 6;
-  const ci = 2;
-  const cj = 1;
-
-  const userInputHandler = () => {
-    let i = Math.floor(cloc / 3) * 3 + ci;
-    let j = (cloc % 3) * 3 + cj;
-
-    console.log(`i=${i}, j=${j}`);
-  };
 
   async function fetchBoardHandler() {
     setIsLoading(false);
@@ -32,9 +21,9 @@ function App() {
     setBoard(() => {
       let strBoard = databoard.init_board;
       let numBoard = [];
-      
+
       for (let i = 0; i < 9; i++) {
-        numBoard.push(strBoard.slice(i*9, (i*9) + 9).split('').map(Number));
+        numBoard.push(strBoard.slice(i * 9, (i * 9) + 9).split('').map(Number));
       }
 
       return numBoard;
@@ -53,8 +42,8 @@ function App() {
   return (<Fragment>
     <div className={classes['game-container']}>
       {isLoading && <h2 className={classes['header-text']}>{`${difficulty} Puzzle #${boardID}`}</h2>}
-      {isLoading && <Grid sudoku={board} styles={classes.game} /> }
-      <Numpad fetchBoard={fetchBoardHandler} userInput={userInputHandler} />
+      {isLoading && <Grid sudoku={board} styles={classes.game} />}
+      <Numpad fetchBoard={fetchBoardHandler} setBoard={setBoard}/>
     </div>
   </Fragment>);
 }
