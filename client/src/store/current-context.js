@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 const CurrentContext = React.createContext({
   i: 0,
   j: 0,
+  currId: 0,
   setCurrentCell: () => {}
 });
 
@@ -14,14 +15,15 @@ export const CurrentContextProvider = (props) => {
     let bi = Math.floor(loc / 3) * 3 + di;
     let bj = (loc % 3) * 3 + dj;
 
-    seti(bi);
-    setj(bj);
+    seti(di);
+    setj(dj);
   };
 
   return <CurrentContext.Provider
     value={{
       i:i,
       j:j,
+      currId: 0,
       setCurrentCell: setCurrentCell
     }}
   >

@@ -9,6 +9,6 @@
   width: 50px;
 }
 
-.cell:hover {
-  background-color: #FA8F04;
+.cell-clicked {
+  background-color: darkgray;
 }
