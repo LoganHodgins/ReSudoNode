@@ -3,17 +3,22 @@ import CurrentContext from '../../store/current-context';
 import classes from './Cell.module.css'
 
 const Cell = (props) => {
-  const [active, setActive] = useState(false);
+  const [isGroup, setIsGroup] = useState(false);
+  const [isActive, setIsActive] = useState(false);
+
   const ctx = useContext(CurrentContext);
   
   let i = Math.floor(props.location / 3) * 3 + props.i;
   let j = (props.location % 3) * 3 + props.j;
 
   useEffect(() => {
+    setIsGroup(false);
+    setIsActive(false);
+
     if (i === ctx.i && j === ctx.j) {
-      setActive(true);
-    } else {
-      setActive(false);
+      setIsActive(true);
+    } else if (i === ctx.i || j === ctx.j || props.location === ctx.loc) {
+      setIsGroup(true);
     }
 
   }, [ctx.i, ctx.j]);
@@ -22,8 +27,10 @@ const Cell = (props) => {
     ctx.setCurrentCell(props.location, i, j);
   };
 
+  const style = `${classes.cell} ${isGroup ? classes['cell-group'] : ''} ${isActive ? classes['cell-active'] : ''}`;
   const value = props.value > 0 ? props.value.toString() : "";
-  return (<div className={`${classes.cell} ${active ? classes['cell-clicked'] : ''}`} onClick={clickHandler}>{value}</div>);
+
+  return (<div className={style} onClick={clickHandler}>{value}</div>);
 };
 
 export default Cell;

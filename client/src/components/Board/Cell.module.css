@@ -9,6 +9,14 @@
   width: 50px;
 }
 
-.cell-clicked {
-  background-color: darkgray;
+.cell-constant {
+  font-weight: bold;
+}
+
+.cell-active {
+  background-color: #FF7326;
+}
+
+.cell-group {
+  background-color: #ff9c67;
 }
