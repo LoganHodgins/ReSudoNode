@@ -4,13 +4,16 @@ const CurrentContext = React.createContext({
   i: 0,
   j: 0,
   loc: 0,
-  setCurrentCell: () => {}
+  initBoard: [],
+  setCurrentCell: () => {},
+  setInitBoard: () => {}
 });
 
 export const CurrentContextProvider = (props) => {
   const [i, seti] = useState(0);
   const [j, setj] = useState(0);
   const [loc, setLoc] = useState(0);
+  const [initBoard, setInitBoard] = useState();
 
   const setCurrentCell = (loc, di, dj) => {
     seti(di);
@@ -23,7 +26,9 @@ export const CurrentContextProvider = (props) => {
       i:i,
       j:j,
       loc: loc,
-      setCurrentCell: setCurrentCell
+      initBoard: initBoard,
+      setCurrentCell: setCurrentCell,
+      setInitBoard: setInitBoard
     }}
   >
     {props.children}

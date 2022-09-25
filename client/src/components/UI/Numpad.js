@@ -11,7 +11,9 @@ const Numpad = (props) => {
     
     props.setBoard(prevBoard => {
       let newBoard = [...prevBoard];
-      newBoard[ctx.i][ctx.j] = value;
+      if (ctx.initBoard[ctx.i][ctx.j] === 0) {
+        newBoard[ctx.i][ctx.j] = value;
+      }
 
       return newBoard;
     });

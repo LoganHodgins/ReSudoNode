@@ -5,9 +5,9 @@ import classes from './Cell.module.css'
 const Cell = (props) => {
   const [isGroup, setIsGroup] = useState(false);
   const [isActive, setIsActive] = useState(false);
-
-  const ctx = useContext(CurrentContext);
   
+  const ctx = useContext(CurrentContext);
+
   let i = Math.floor(props.location / 3) * 3 + props.i;
   let j = (props.location % 3) * 3 + props.j;
 
@@ -27,7 +27,13 @@ const Cell = (props) => {
     ctx.setCurrentCell(props.location, i, j);
   };
 
-  const style = `${classes.cell} ${isGroup ? classes['cell-group'] : ''} ${isActive ? classes['cell-active'] : ''}`;
+  let isConst = ctx.initBoard[i][j] > 0;
+
+  const style = `${classes.cell} 
+                 ${isGroup ? classes['cell-group'] : ''} 
+                 ${isActive ? classes['cell-active'] : ''}
+                 ${isConst ? classes['cell-constant']: ''}`;
+
   const value = props.value > 0 ? props.value.toString() : "";
 
   return (<div className={style} onClick={clickHandler}>{value}</div>);
