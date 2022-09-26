@@ -6,4 +6,6 @@
   width: 350px;
   height: 250px;
   margin-top: 130px;
+  grid-column: 2;
+  grid-row: 2;
 }
