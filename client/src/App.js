@@ -7,14 +7,14 @@ import LoadingGlass from "./components/Board/LoadingGlass";
 
 function App() {
   const DUMMY_BOARD = [[0, 0, 0, 0, 0, 3, 0, 8, 0],
-        [0, 4, 0, 0, 5, 0, 7, 0, 1],
-[0, 9, 8, 4, 0, 0, 2, 0, 0],
-[0, 3, 2, 7, 8, 0, 0, 1, 9],
-[0, 1, 0, 0, 0, 6, 0, 0, 0],
-[5, 8, 6, 9, 0, 0, 0, 0, 7],
-[9, 2, 0, 0, 3, 0, 5, 0, 0],
-[0, 0, 4, 0, 0, 1, 0, 6, 3],
-[0, 0, 5, 8, 7, 0, 0, 2, 0]]
+                       [0, 4, 0, 0, 5, 0, 7, 0, 1],
+                       [0, 9, 8, 4, 0, 0, 2, 0, 0],
+                       [0, 3, 2, 7, 8, 0, 0, 1, 9],
+                       [0, 1, 0, 0, 0, 6, 0, 0, 0],
+                       [5, 8, 6, 9, 0, 0, 0, 0, 7],
+                       [9, 2, 0, 0, 3, 0, 5, 0, 0],
+                       [0, 0, 4, 0, 0, 1, 0, 6, 3],
+                       [0, 0, 5, 8, 7, 0, 0, 2, 0]];
 
   const [board, setBoard] = useState(DUMMY_BOARD);
   const [boardID, setboardID] = useState('');
@@ -50,10 +50,12 @@ function App() {
     fetchBoardHandler();
   }, []);
 
+  const headerText = isLoading ? 'Fetching Board' : `${difficulty} Puzzle #${boardID}`;
+
   return (<Fragment>
     <div className={classes['game-container']}>
       {isLoading && <LoadingGlass />}
-      <h2 className={classes['header-text']}>{`${difficulty} Puzzle #${boardID}`}</h2>
+      <h2 className={classes['header-text']}>{headerText}</h2>
       <Grid sudoku={board}/>
       <Numpad fetchBoard={fetchBoardHandler} setBoard={setBoard} />
     </div>

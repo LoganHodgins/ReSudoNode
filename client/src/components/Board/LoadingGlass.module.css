@@ -1,3 +1,15 @@
+:root {
+  --sz: 30px;
+  --rad: calc(var(--sz) / 2);
+  --posm: 9999px;
+  --posf: calc(var(--posm) - var(--sz) - var(--rad) - 7px);
+  --posb: calc(var(--posm) + var(--sz) + var(--rad) + 7px);
+  --bcolr: rgb(49, 49, 49);
+  --tcolr: rgb(160, 160, 160);
+  --animd: 1s;
+}
+
+
 .loading-glass {
   width: 478px;
   height: 478px;
@@ -6,4 +18,89 @@
   backdrop-filter: blur(5px);
   grid-column: 1;
   grid-row: 2;
+}
+
+
+.dot-falling {
+  position: relative;
+  top: 47%;
+  margin: 0 auto;
+  left: -9999px;
+  width: var(--sz);
+  height: var(--sz);
+  border-radius: var(--rad);
+  background-color: var(--bcolr);
+  color: var(--bcolr);
+  box-shadow: 9999px 0 0 0 var(--bcolr);
+  animation: dotFalling var(--animd) infinite linear;
+  animation-delay: 1.1s;
+}
+
+.dot-falling::before, .dot-falling::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 0;
+}
+
+.dot-falling::before {
+  width: var(--sz);
+  height: var(--sz);
+  border-radius: var(--rad);
+  background-color: var(--bcolr);
+  color: var(--bcolr);
+  animation: dotFallingBefore var(--animd) infinite linear;
+  animation-delay: 0s;
+}
+
+.dot-falling::after {
+  width: var(--sz);
+  height: var(--sz);
+  border-radius: var(--rad);
+  background-color: var(--bcolr);
+  color: var(--bcolr);
+  animation: dotFallingAfter var(--animd) infinite linear;
+  animation-delay: 1.2s;
+}
+
+@keyframes dotFalling {
+  0% {
+    box-shadow: var(--posm) -20px 0 0 var(--tcolr);
+  }
+  25%,
+  50%,
+  75% {
+    box-shadow: var(--posm) 0 0 0 var(--bcolr);
+  }
+  100% {
+    box-shadow: var(--posm) 20px 0 0 var(--tcolr);
+  }
+}
+
+@keyframes dotFallingBefore {
+  0% {
+    box-shadow: var(--posf) -20px 0 0 var(--tcolr);
+  }
+  25%,
+  50%,
+  75% {
+    box-shadow: var(--posf) 0 0 0 var(--bcolr);
+  }
+  100% {
+    box-shadow: var(--posf) 20px 0 0 var(--tcolr);
+  }
+}
+
+@keyframes dotFallingAfter {
+  0% {
+    box-shadow: var(--posb) -20px 0 0 var(--tcolr);
+  }
+  25%,
+  50%,
+  75% {
+    box-shadow: var(--posb) 0 0 0 var(--bcolr);
+  }
+  100% {
+    box-shadow: var(--posb) 20px 0 0 var(--tcolr);
+  }
 }
